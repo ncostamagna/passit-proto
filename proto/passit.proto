@@ -10,10 +10,19 @@ message CreateSecretRequest {
   bool one_time = 3;
 }
 
+message GetSecretRequest {
+  string key = 1;
+}
+
 message CreateSecretResponse {
-  string client_secret = 1; 
+  string key = 1; 
+}
+
+message GetSecretResponse {
+  string message = 1;
 }
 
 service Passit {
   rpc CreateSecret(CreateSecretRequest) returns (CreateSecretResponse);
+  rpc GetSecret(GetSecretRequest) returns (GetSecretResponse);
 }
